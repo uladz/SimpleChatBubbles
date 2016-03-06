@@ -3,7 +3,7 @@
 
 local SCB = {
 	name = "SimpleChatBubbles",
-	title = "SCB - Revived",
+	title = "Simple Chat Bubbles",
 	dbVersion = 1,
 	channelNames = {
 		"MONSTER_EMOTE",
@@ -92,6 +92,10 @@ function SCB:Init()
 		showBackdrop = false,
 		showTextShadow = true,
 		overrideBodyColor = false,
+		posVertical1 = 40,
+		posVertical2 = 180,
+		posHorizontal = 0,
+		distHorizontal = 350,
 		headerColor = {
 			r = 0.93,
 			g = 0.92,
@@ -492,7 +496,7 @@ function SCB:MakeConfig()
 		},	
 		[19] = {
 			type = "slider",
-			name = "Min Duration (Seconds))",
+			name = "Min Duration (Seconds)",
 			width = "half",
 			tooltip = "The minimum seconds a bubble will stay on screen",
 			min = 5,
@@ -502,16 +506,60 @@ function SCB:MakeConfig()
 			setFunc = function(value) self.db.minDuration = value * 1000 end
 		},
 		[20] = {
+			type = "slider",
+			name = "Vertical Position 1",
+			width = "half",
+			tooltip = "Vertical position of the chat bubbles row 1 from compass",
+			min = 0,
+			max = 500,
+			step = 5,
+			getFunc = function() return self.db.posVertical1 end,
+			setFunc = function(value) self.db.posVertical1 = value end
+		},
+		[21] = {
+			type = "slider",
+			name = "Vertical Position 2",
+			width = "half",
+			tooltip = "Vertical position of chat bubbles row 2 from compass",
+			min = 0,
+			max = 500,
+			step = 5,
+			getFunc = function() return self.db.posVertical2 end,
+			setFunc = function(value) self.db.posVertical2 = value end
+		},
+		[22] = {
+			type = "slider",
+			name = "Horizontal Position",
+			width = "half",
+			tooltip = "Horizontal position of central chat bubble from center",
+			min = -500,
+			max = 500,
+			step = 5,
+			getFunc = function() return self.db.posHorizontal end,
+			setFunc = function(value) self.db.posHorizontal = value end
+		},
+		[23] = {
+			type = "slider",
+			name = "Horizontal Distance",
+			width = "half",
+			tooltip = "How far chat bubbles are spread horizontally",
+			min = 100,
+			max = 500,
+			step = 5,
+			getFunc = function() return self.db.distHorizontal end,
+			setFunc = function(value) self.db.distHorizontal = value end
+		},
+		[24] = {
 			type = "description",
 			text = "\nMake sure to reload the ui if applicable!\n"
 		},
-		[21] = {
+		[25] = {
 			type = "button",
 			name = "Reload UI",
 			tooltip = "Reloads the UI",
 			func = function() ReloadUI() end
 		},
-		[22] = {
+		[26] = {
 			type = "header",
 			name = "Channels\n"
 		}
@@ -556,15 +604,21 @@ end
 
 function SCB:MakeControls()
 	local WM = GetWindowManager()
-	local maxVertical, bubbleHeight, labelVertical = 125, 300, -5
+	local minVertical =  self.db.posVertical1
+	local maxVertical =  self.db.posVertical2
+	local minHorizontal = -self.db.distHorizontal + self.db.posHorizontal
+	local maxHorizontal = self.db.distHorizontal + self.db.posHorizontal
+	local centerHorizontal = self.db.posHorizontal
+	local labelVertical = -5
+	local bubbleHeight = 300
 
 	local bubbles = {
-		{0, -15},
-		{-350, -15},
-		{350, -15},
-		{-350, maxVertical},
-		{350, maxVertical},
-		{0, maxVertical}
+		{centerHorizontal, minVertical},
+		{minHorizontal, minVertical},
+		{maxHorizontal, minVertical},
+		{minHorizontal, maxVertical},
+		{maxHorizontal, maxVertical},
+		{centerHorizontal, maxVertical}
 	}
 
 	self.controls = {

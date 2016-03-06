@@ -1,6 +1,8 @@
-## Title: Simple Chat Bubbles - By RibbedStoic
-## APIVersion: 100010
+## Title: Simple Chat Bubbles
+## APIVersion: 100013
 ## SavedVariables: SCB_DB
+## Version: 2.1.2
+## Author: Uladz, RibbedStoic
 ## OptionalDependsOn: LibAddonMenu-2.0 LibMediaProvider-1.0
 
 Libs/LibStub/LibStub.lua
