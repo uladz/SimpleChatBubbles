@@ -1,0 +1,11 @@
+## Title: Simple Chat Bubbles - By RibbedStoic
+## APIVersion: 100010
+## SavedVariables: SCB_DB
+## OptionalDependsOn: LibAddonMenu-2.0 LibMediaProvider-1.0
+
+Libs/LibStub/LibStub.lua
+Libs/LibAddonMenu-2.0/LibAddonMenu-2.0/LibAddonMenu-2.0.lua
+Libs/LibMediaProvider-1.0/LibMediaProvider-1.0/LibMediaProvider-1.0.lua
+Libs/UTF-8/utf8.lua
+
+SimpleChatBubbles.lua
