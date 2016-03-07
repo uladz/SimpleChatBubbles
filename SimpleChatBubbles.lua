@@ -92,8 +92,8 @@ function SCB:Init()
 		showBackdrop = false,
 		showTextShadow = true,
 		overrideBodyColor = false,
-		posVertical1 = 40,
-		posVertical2 = 180,
+		posVertical = 40,
+		distVertical = 140,
 		posHorizontal = 0,
 		distHorizontal = 350,
 		headerColor = {
@@ -507,25 +507,27 @@ function SCB:MakeConfig()
 		},
 		[20] = {
 			type = "slider",
-			name = "Vertical Position 1",
+			name = "Vertical Position",
 			width = "half",
-			tooltip = "Vertical position of the chat bubbles row 1 from compass",
-			min = 0,
+			tooltip = "Vertical position of the chat bubbles top row from compass",
+			min = -500,
 			max = 500,
 			step = 5,
-			getFunc = function() return self.db.posVertical1 end,
-			setFunc = function(value) self.db.posVertical1 = value end
+			getFunc = function() return self.db.posVertical end,
+			setFunc = function(value) self.db.posVertical = value end,
+			warning = "Requires reloading the UI."
 		},
 		[21] = {
 			type = "slider",
-			name = "Vertical Position 2",
+			name = "Vertical Spacing",
 			width = "half",
-			tooltip = "Vertical position of chat bubbles row 2 from compass",
+			tooltip = "Vertical spacing between chat bubbles rows",
 			min = 0,
 			max = 500,
 			step = 5,
-			getFunc = function() return self.db.posVertical2 end,
-			setFunc = function(value) self.db.posVertical2 = value end
+			getFunc = function() return self.db.distVertical end,
+			setFunc = function(value) self.db.distVertical = value end,
+			warning = "Requires reloading the UI."
 		},
 		[22] = {
 			type = "slider",
@@ -536,18 +538,20 @@ function SCB:MakeConfig()
 			max = 500,
 			step = 5,
 			getFunc = function() return self.db.posHorizontal end,
-			setFunc = function(value) self.db.posHorizontal = value end
+			setFunc = function(value) self.db.posHorizontal = value end,
+			warning = "Requires reloading the UI."
 		},
 		[23] = {
 			type = "slider",
-			name = "Horizontal Distance",
+			name = "Horizontal Spacing",
 			width = "half",
-			tooltip = "How far chat bubbles are spread horizontally",
-			min = 100,
+			tooltip = "Horizontal spacing between chat bubbles columns",
+			min = 0,
 			max = 500,
 			step = 5,
 			getFunc = function() return self.db.distHorizontal end,
-			setFunc = function(value) self.db.distHorizontal = value end
+			setFunc = function(value) self.db.distHorizontal = value end,
+			warning = "Requires reloading the UI."
 		},
 		[24] = {
 			type = "description",
@@ -604,11 +608,11 @@ end
 
 function SCB:MakeControls()
 	local WM = GetWindowManager()
-	local minVertical =  self.db.posVertical1
-	local maxVertical =  self.db.posVertical2
-	local minHorizontal = -self.db.distHorizontal + self.db.posHorizontal
-	local maxHorizontal = self.db.distHorizontal + self.db.posHorizontal
+	local minVertical =  self.db.posVertical
+	local maxVertical =  self.db.posVertical + self.db.distVertical
 	local centerHorizontal = self.db.posHorizontal
+	local minHorizontal = self.db.posHorizontal - self.db.distHorizontal
+	local maxHorizontal = self.db.posHorizontal + self.db.distHorizontal
 	local labelVertical = -5
 	local bubbleHeight = 300
 
