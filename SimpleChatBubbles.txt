@@ -2,13 +2,15 @@
 ## Version: 2.1.2
 ## Author: Uladz, RibbedStoic
 ## Description: Adds chat bubbled to the top of the screen to make it easier to know when someone is messaging you.
-## APIVersion: 100013
+## APIVersion: 100014
 ## SavedVariables: SCB_DB
 ## OptionalDependsOn: LibAddonMenu-2.0 LibMediaProvider-1.0
 
-Libs/LibStub/LibStub.lua
+# Libraries
+Libs/LibStub/LibStub/LibStub.lua
 Libs/LibAddonMenu-2.0/LibAddonMenu-2.0/LibAddonMenu-2.0.lua
 Libs/LibMediaProvider-1.0/LibMediaProvider-1.0/LibMediaProvider-1.0.lua
 Libs/UTF-8/utf8.lua
 
+# Main file
 SimpleChatBubbles.lua

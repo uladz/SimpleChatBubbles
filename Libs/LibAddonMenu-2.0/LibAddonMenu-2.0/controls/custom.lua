@@ -5,7 +5,7 @@
 	width = "full",	--or "half" (optional)
 }	]]
 
-local widgetVersion = 4
+local widgetVersion = 6
 local LAM = LibStub("LibAddonMenu-2.0")
 if not LAM:RegisterWidget("custom", widgetVersion) then return end
 
@@ -18,28 +18,23 @@ local function UpdateValue(control)
 	end
 end
 
+local MIN_HEIGHT = 26
 function LAMCreateControl.custom(parent, customData, controlName)
-	local control = wm:CreateTopLevelWindow(controlName or customData.reference)
+	local control = LAM.util.CreateBaseControl(parent, customData, controlName)
+	local width = control:GetWidth()
 	control:SetResizeToFitDescendents(true)
-	control:SetParent(parent.scroll or parent)
-	
-	local isHalfWidth = customData.width == "half"
-	if isHalfWidth then	--note these restrictions
-		control:SetDimensionConstraints(250, 55, 250, 100)
-		control:SetDimensions(250, 55)
+
+	if control.isHalfWidth then	--note these restrictions
+		control:SetDimensionConstraints(width / 2, MIN_HEIGHT, width / 2, MIN_HEIGHT * 4)
 	else
-		control:SetDimensionConstraints(510, 30, 510, 100)
-		control:SetDimensions(510, 30)
+		control:SetDimensionConstraints(width, MIN_HEIGHT, width, MIN_HEIGHT * 4)
 	end
-	
-	control.panel = parent.panel or parent	--if this is in a submenu, panel is its parent
-	control.data = customData
-	
+
 	control.UpdateValue = UpdateValue
-	
+
 	if control.panel.data.registerForRefresh or control.panel.data.registerForDefaults then	--if our parent window wants to refresh controls, then add this to the list
 		tinsert(control.panel.controlsToRefresh, control)
 	end
-	
+
 	return control
 end

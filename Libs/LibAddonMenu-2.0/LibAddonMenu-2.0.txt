@@ -1,7 +1,8 @@
-## APIVersion: 100010
+## APIVersion: 100014
 ## Title: LibAddonMenu-2.0
-## Version: 2.0 r16
-## Author: Seerah
+## Version: 2.0 r19
+## Author: Seerah, sirinsidiator, et al.
+## Contributors: votan, merlight, Garkin, Randactyl, KuroiLight
 ## Description: A library to aid in the creation of option panels.
 
 
@@ -21,3 +22,4 @@ LibAddonMenu-2.0\controls\editbox.lua
 LibAddonMenu-2.0\controls\header.lua
 LibAddonMenu-2.0\controls\slider.lua
 LibAddonMenu-2.0\controls\texture.lua
+LibAddonMenu-2.0\controls\iconpicker.lua
