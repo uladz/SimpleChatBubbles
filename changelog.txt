@@ -1,0 +1,44 @@
+Minor Release 2.2:
+  * Updated all libraries to the latest version.
+  * Replaced LibAddonMenu-2.0 with the latest r19.
+  * Replaced LibMediaProvider-1.0 with the latest r8.
+  * Replaced LibStub with the latest r4.
+  * More settings fixes and other minor changes.
+  * Changed vertical row 2 position setting to vertical spacing options.
+  * Added realod UI warnings.
+  * Horizontal distance option renamed to "spacing".
+  * Added version # to the addon name and description.
+  * Added options to re-position chat bubbles to fit your HUD.
+  * Moved chat bubbles a bit lower by default to do not overlap with target frame. 
+  * Updated API version, no more "Outdated" warning in ESO.
+  * Changed name of addon from "SCB - Revived" to "Simple Chat Bubbles" in Addon Settings.
+  * Updates manifest file to conform with ESO addons standard.
+  
+Maintenance release 2.1.1 (by RibbedStoic):
+  * Updated API Version.
+  * Removed fonts from dropdown that were removed from game.
+
+Minor release 2.1 (by RibbedStoic):
+  * Added option to give a text shadow for easier readability.
+  * Added option to show a black background.
+
+Major release 2.0 (by RibbedStoic):
+  * Updated LAM to V2 (Settings are now under Addon Settings).
+  * Added Ability to change color of player names.
+  * Added ability to change font for player names.
+  * Added ability to change font for body text.
+  * Added ability to change font size for player names.
+  * Added ability to change font size for body text.
+  * Added Ability to change player name color.
+  * Added Ability to override and change body text color.
+  * Removed black background from text(May be added back with selectable options at a later date).
+
+Maintenance release 1.0.5 (by RibbedStoic):
+  * Updated api version.
+
+Maintenance release 1.0.4 (by RibbedStoic):
+  * Updated api version.
+  * Changed Title in settings to prevent overflow.
+
+Maintenance release 1.0.3 (by RibbedStoic):
+  * Added Minimum Duration config options.
