@@ -1,5 +1,5 @@
-## Title: |rSimple Chat Bubbles |c9988772.1.2|r
-## Version: 2.1.2
+## Title: |rSimple Chat Bubbles |c9988772.2|r
+## Version: 2.2
 ## Author: Uladz, RibbedStoic
 ## Description: Adds chat bubbled to the top of the screen to make it easier to know when someone is messaging you.
 ## APIVersion: 100014
