@@ -1,10 +1,13 @@
--- Simple Chat Bubbles - By Dio Revived by RibbedStoic  (v1.0.4) -
+-- Simple Chat Bubbles Revived by RibbedStoic, Revived by Uladz
 -- http://www.esoui.com/downloads/author-1518.html
 
 local SCB = {
 	name = "SimpleChatBubbles",
 	title = "Simple Chat Bubbles",
 	dbVersion = 1,
+	version = "2.2.1",
+	author = "Uladz, RibbedStoic",
+	
 	channelNames = {
 		"MONSTER_EMOTE",
 		"MONSTER_SAY",
@@ -142,6 +145,10 @@ function SCB:Init()
 			self:ToggleBubbles(false)
 		end)
 	end
+	
+  -- Publish addon API.
+  local libLA = LibStub:GetLibrary("LibLoadedAddons")
+  libLA:RegisterAddon("SimpleChatBubbles", 2, self)
 end
 
 function SCB:RegisterCombat()
@@ -345,7 +352,7 @@ function SCB:MakeConfig()
 			tooltip = "Hide bubbles while any character menu is open. Does not apply to system menus.",
 			getFunc = function() return self.db.hideOnMenu end,
 			setFunc = function(value) self.db.hideOnMenu = value end,
-			warning = "Requires reloading the UI."
+      warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[6] = {
 			type = "checkbox",
@@ -354,7 +361,7 @@ function SCB:MakeConfig()
 			tooltip = "Bubbles will be more obvious.",
 			getFunc = function() return self.db.animatePop end,
 			setFunc = function(value) self.db.animatePop = value end,
-			warning = "Requires reloading the UI."
+      warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[7] = {
 			type = "checkbox",
@@ -363,7 +370,7 @@ function SCB:MakeConfig()
 			tooltip = "Show a black background behind text",
 			getFunc = function() return self.db.showBackdrop end,
 			setFunc = function(value) self.db.showBackdrop = value end,
-			warning = "Requires reloading the UI."
+      warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[8] = {
 			type = "checkbox",
@@ -372,7 +379,7 @@ function SCB:MakeConfig()
 			tooltip = "Adds a text shadow to make text easier to see",
 			getFunc = function() return self.db.showTextShadow end,
 			setFunc = function(value) self.db.showTextShadow = value end,
-			warning = "Requires reloading the UI."
+      warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[9] = {
 			type = "dropdown",
@@ -382,7 +389,7 @@ function SCB:MakeConfig()
 			choices = LMP:List('font'),
 			getFunc = function() return self.db.headerFont end,
 			setFunc = function(value) self.db.headerFont = value end,
-			warning = "Requires reloading the UI."
+      warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[10] = {
 			type = "dropdown",
@@ -392,7 +399,7 @@ function SCB:MakeConfig()
 			choices = LMP:List('font'),
 			getFunc = function() return self.db.bodyFont end,
 			setFunc = function(value) self.db.bodyFont = value end,
-			warning = "Requires reloading the UI."
+      warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[11] = {
 			type = "colorpicker",
@@ -407,7 +414,7 @@ function SCB:MakeConfig()
 				self.db.headerColor.g = g
 				self.db.headerColor.b = b
 			end,
-			warning = "Requires reloading the UI."
+      warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[12] = {
 			type = "checkbox",
@@ -437,7 +444,7 @@ function SCB:MakeConfig()
 					return true
 				end
 			end,
-			warning = "Requires reloading the UI."
+      warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[14] = {
 			type = "slider",
@@ -448,7 +455,7 @@ function SCB:MakeConfig()
 			step = 1,
 			getFunc = function() return self.db.playerNameFontSize end,
 			setFunc = function(value) self.db.playerNameFontSize = value end,
-			warning = "Requires reloading the UI."
+			warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[15] = {
 			type = "slider",
@@ -459,7 +466,7 @@ function SCB:MakeConfig()
 			step = 1,
 			getFunc = function() return self.db.bodyFontSize end,
 			setFunc = function(value) self.db.bodyFontSize = value end,
-			warning = "Requires reloading the UI."
+      warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[16] = {
 			type = "slider",
@@ -482,29 +489,29 @@ function SCB:MakeConfig()
 			step = 1,
 			getFunc = function() return self.db.maxBubbles end,
 			setFunc = function(value) self.db.maxBubbles = value end
-		},	
-		[18] = {
+		},
+    [18] = {
+      type = "slider",
+      name = "Min Duration (Seconds)",
+      width = "half",
+      tooltip = "The minimum seconds a bubble will stay on screen",
+      min = 5,
+      max = 30,
+      step = 1,
+      getFunc = function() return self.db.minDuration / 1000 end,
+      setFunc = function(value) self.db.minDuration = value * 1000 end
+    },
+		[19] = {
 			type = "slider",
 			name = "Max Duration (Seconds)",
 			width = "half",
 			tooltip = "The maximum seconds a bubble will stay unless overwritten. Bubble duration depends on the length of the full message.",
 			min = 5,
-			max = 12,
+			max = 30,
 			step = 1,
 			getFunc = function() return self.db.maxDuration / 1000 end,
 			setFunc = function(value) self.db.maxDuration = value * 1000 end
 		},	
-		[19] = {
-			type = "slider",
-			name = "Min Duration (Seconds)",
-			width = "half",
-			tooltip = "The minimum seconds a bubble will stay on screen",
-			min = 5,
-			max = 12,
-			step = 1,
-			getFunc = function() return self.db.minDuration / 1000 end,
-			setFunc = function(value) self.db.minDuration = value * 1000 end
-		},
 		[20] = {
 			type = "slider",
 			name = "Vertical Position",
@@ -515,7 +522,7 @@ function SCB:MakeConfig()
 			step = 5,
 			getFunc = function() return self.db.posVertical end,
 			setFunc = function(value) self.db.posVertical = value end,
-			warning = "Requires reloading the UI."
+      warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[21] = {
 			type = "slider",
@@ -527,7 +534,7 @@ function SCB:MakeConfig()
 			step = 5,
 			getFunc = function() return self.db.distVertical end,
 			setFunc = function(value) self.db.distVertical = value end,
-			warning = "Requires reloading the UI."
+      warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[22] = {
 			type = "slider",
@@ -539,7 +546,7 @@ function SCB:MakeConfig()
 			step = 5,
 			getFunc = function() return self.db.posHorizontal end,
 			setFunc = function(value) self.db.posHorizontal = value end,
-			warning = "Requires reloading the UI."
+      warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[23] = {
 			type = "slider",
@@ -551,7 +558,7 @@ function SCB:MakeConfig()
 			step = 5,
 			getFunc = function() return self.db.distHorizontal end,
 			setFunc = function(value) self.db.distHorizontal = value end,
-			warning = "Requires reloading the UI."
+      warning = "|cFF0000Requires reloading the UI.|r"
 		},
 		[24] = {
 			type = "description",
