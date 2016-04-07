@@ -8,7 +8,7 @@
 
 # Libraries
 Libs\LibStub\LibStub.lua
-Libs\LibLoadedAddons\LibLoadedAddons.lua
+Libs\LibAddonAPI\LibAddonAPI.lua
 Libs\LibMediaProvider-1.0\LibMediaProvider-1.0.lua
 Libs\LibAddonMenu-2.0\LibAddonMenu-2.0.lua
 Libs\LibAddonMenu-2.0\controls\panel.lua
@@ -28,3 +28,7 @@ Libs\UTF-8\utf8.lua
 
 # Main file
 SimpleChatBubbles.lua
+
+; This Add-on is not created by, affiliated with or sponsored by ZeniMax Media Inc. or its affiliates.
+; The Elder Scrolls® and related logos are registered trademarks or trademarks of ZeniMax Media Inc. in the United States and/or other countries.
+; All rights reserved.

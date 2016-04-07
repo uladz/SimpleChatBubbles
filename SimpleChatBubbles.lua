@@ -147,8 +147,8 @@ function SCB:Init()
 	end
 	
   -- Publish addon API.
-  local libLA = LibStub:GetLibrary("LibLoadedAddons")
-  libLA:RegisterAddon("SimpleChatBubbles", 2, self)
+  local libAA = LibStub:GetLibrary("LibAddonAPI")
+  libAA:RegisterAddon(self.name, 2, self)
 end
 
 function SCB:RegisterCombat()
