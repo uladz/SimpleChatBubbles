@@ -5,7 +5,7 @@ local SCB = {
 	name = "SimpleChatBubbles",
 	title = "Simple Chat Bubbles",
 	dbVersion = 1,
-	version = "2.2.1",
+	version = "2.2.0",
 	author = "Uladz, RibbedStoic",
 	
 	channelNames = {
