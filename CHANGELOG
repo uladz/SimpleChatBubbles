@@ -1,4 +1,6 @@
-2.2.0
+2.2.0 "Silver Mercury Crawdad" (by @uladz)
+  * Added support for settings sync from Chat Sound Alerts.
+  * Added LibAddonAPI r1.
   * Updated all libraries to the latest version.
   * Replaced LibAddonMenu-2.0 with the latest r19.
   * Replaced LibMediaProvider-1.0 with the latest r8.
