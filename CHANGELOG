@@ -7,15 +7,15 @@
   * Replaced LibStub with the latest r4.
   * More settings fixes and other minor changes.
   * Changed vertical row 2 position setting to vertical spacing options.
-  * Added realod UI warnings.
+  * Added reload UI warnings.
   * Horizontal distance option renamed to "spacing".
   * Added version # to the addon name and description.
   * Added options to re-position chat bubbles to fit your HUD.
-  * Moved chat bubbles a bit lower by default to do not overlap with target frame. 
+  * Moved chat bubbles a bit lower by default to do not overlap with target frame.
   * Updated API version, no more "Outdated" warning in ESO.
   * Changed name of addon from "SCB - Revived" to "Simple Chat Bubbles" in Addon Settings.
   * Updates manifest file to conform with ESO addons standard.
-  
+
 2.1.1 (by RibbedStoic)
   * Updated API Version.
   * Removed fonts from dropdown that were removed from game.
@@ -44,3 +44,15 @@
 
 1.0.3 (by RibbedStoic)
   * Added Minimum Duration config options.
+
+1.0.2-Fix (by Dio)
+  * Reuploaded. OS X sort of messed up the folder structure of the archive.
+
+1.0.2 (by Dio)
+  * New option: "Show My Chat". Enabling this will show your chat as a bubble.
+  * New option: "Hide On Menus". Enabling this will hide chat on any character menus (not system menus). Upon leaving any character menus the chat will reappear.
+  * Fixed the bug that was present if you disabled "Show Pop Animation".
+  * Various code refactoring.
+
+1.0.1 (by Dio)
+  * Added 4 new channels: EMOTE (/emote), MONSTER_EMOTE, MONSTER_SAY, MONSTER_WHISPER, and MONSTER_YELL.
