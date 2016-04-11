@@ -2,7 +2,7 @@
   * Added support for settings sync from Chat Sound Alerts.
   * Added LibAddonAPI r1.
   * Updated all libraries to the latest version.
-  * Replaced LibAddonMenu-2.0 with the latest r19.
+  * Replaced LibAddonMenu-2.0 with the latest r20.
   * Replaced LibMediaProvider-1.0 with the latest r8.
   * Replaced LibStub with the latest r4.
   * More settings fixes and other minor changes.
